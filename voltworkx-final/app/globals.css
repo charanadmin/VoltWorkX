@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --bg-void: #000000;
+  --bg-raised: #0a0a0a;
+  --bg-card: #111111;
+  --bg-hover: #1a1a1a;
+  --border-dim: rgba(255,255,255,0.06);
+  --border-mid: rgba(255,255,255,0.12);
+  --border-bright: rgba(0,240,255,0.35);
+  --cyan: #00f0ff;
+  --cyan-dim: rgba(0,240,255,0.15);
+  --amber: #ff9500;
+  --green: #00ff88;
+  --red: #ff0044;
+  --magenta: #ff006e;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.5);
+  --text-dim: rgba(255,255,255,0.25);
+  --radius: 0px;
+}
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-background: var(--bg-void);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--bg-card);
+  --color-cyan: var(--cyan);
+  --color-amber: var(--amber);
+  --color-green: var(--green);
+  --color-red: var(--red);
+  --color-magenta: var(--magenta);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+}
+
+@layer base {
+  * {
+    border-color: var(--border-dim);
+  }
+  body {
+    background: var(--bg-void);
+    color: var(--text-primary);
+  }
+}
+
+/* Scrollbar styling - 3px wide */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,240,255,0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,240,255,0.4);
+}
+
+/* Canvas dot grid */
+.dot-grid {
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Simulation pulse animation */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0px rgba(0,255,136,0.4); }
+  50% { box-shadow: 0 0 20px rgba(0,255,136,0.4); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Status dot pulse */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-pulse {
+  animation: status-pulse 1s ease-in-out infinite;
+}
